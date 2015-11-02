@@ -1,0 +1,16 @@
+.container {
+	max-width: 900px;
+	margin-top: 40px;
+	.row {
+		margin-top: 20px;
+	}
+	#movie-search {
+		margin-left: 20px;
+	}
+}
+
+.movie-preview {
+	img {
+		width: 100%;
+	}
+}
