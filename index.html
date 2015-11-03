@@ -1,94 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<!-- <script src="js/bootstrap.min.js"></script> -->
 
-	<!-- Local styles and JS -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/js/script.js"></script>
-	<script type="text/javascript" src="assets/js/movieObject.js"></script>
+	<script type="text/javascript" src="js/movieObject.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+
+
 </head>
 <body>
-	<div id="search-container" class="container">
-		<div class="row">
-			<form class="form-inline">
-				<input type="text" class="col-sm-3 col-sm-offset-5 form-control" placeholder="Movie">
-				<button id="movie-search" type="sumbit" class="btn btn-default">Search</button>
-			</form>
-	</div>
 
+<div id="movie-wrapper">
 	<div class="container">
-		<div class="row">
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
+		<div class="row search-form">
+			<form id="movie-search-form" class="form-inline">
+			  <div class="form-group">
+			    <label class="sr-only">Search for a movie</label>
+			    <div class="input-group">
+			      <input type="text" class="form-control" id="movieInput" placeholder="Movie">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Search!</button>
+			  </div>
+			</form>
 		</div>
 
-		<div class="row">
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-		</div>
+		<h2>Now Playing</h2>
+		<div id="now-playing-wrapper">
 
-		<div class="row">
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
-			<div class="movie-preview col-sm-3">
-				<img src="assets/images/wedding-crashers.jpeg" >
-			</div>
 		</div>
+	 </div>
+</div>
 
-	</div>
 </body>
 </html>
