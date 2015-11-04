@@ -1,9 +1,11 @@
-function Person(img, name, poster, info, knownMovies) {
- 	this.img = img;
+function Person(baseURL, name, poster, info, knownMovies, id) {
+ 	this.baseURL = baseURL;
  	this.name = name;
  	this.poster = poster;
  	this.info = info;
  	this.knownMovies = knownMovies;
+ 	this.id = id;
+
  	var modalImages = "";
  	for (var i = 0; i < knownMovies.length; i++) {
  		modalImages += '<img src="'+knownMovies[i].backdrop_path+'"><p>'+knownMovies[i].title+'</p>';
@@ -11,8 +13,7 @@ function Person(img, name, poster, info, knownMovies) {
  	
  	this.getDiv = function() {
  		var html = '<div class="now-playing-movie">';
-				html += '<img src="'+img+'w300'+poster+'"><p>'+name+'</p>';
-            	html += '<img src='+img+'w300'+poster+'>';
+				html += '<img src="'+baseURL+'w300'+poster+'"><p>'+name+'</p>';
        	html += '</div>'
  		return html;
  	}
@@ -37,21 +38,22 @@ function Person(img, name, poster, info, knownMovies) {
  	}
 }
 
-function Movie(title, base, poster, overview) {
- 	this.base = base;
+function Movie(title, baseURL, poster, overview, id) {
+ 	this.baseURL = baseURL;
  	this.title = title;
  	this.poster = poster;
  	this.overview = overview;
+ 	this.id = id;
  	
  	this.getDiv = function() {
- 		var html = '<div class="now-playing-movie">';
-				html += '<img alt="'+title+'" src="'+base+'w300'+poster+'">';
+ 		var html = '<div class="now-playing-movie" data-toggle="modal" data-target="#modal-'+id+'">';
+				html += '<img alt="'+title+'" src="'+baseURL+'w300'+poster+'">';
        	html += '</div>'
  		return html;
  	}
 
  	this.getModal = function() {
- 		var modal = '<div class="modal-dialog" role="document">';
+ 		var modal = '<div id="modal-'+id+'" class="modal-dialog" role="document">';
 				modal += '<div class="modal-content">';
 			    	modal += '<div class="modal-header">';
 				    	modal += '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
@@ -69,16 +71,15 @@ function Movie(title, base, poster, overview) {
  	}
 }
 
-function TVShow() {
- 	this.img = img;
+function TVShow(baseURL, poster, name, overview, id) {
+ 	this.baseURL = baseURL;
  	this.name = name;
  	this.poster = poster;
- 	this.info = info;
+ 	this.overview = overview;
  	
- 	function getDiv() {
+ 	this.getDiv = function() {
  		var html = '<div class="now-playing-movie">';
-				html += '<img src="'+img+'w300'+poster+'"><p>'+name+'</p>';
-            	html += '<img src='+img+'w300'+poster+'>';
+				html += '<img title="'+overview+'" alt="'+name+'" src="'+baseURL+'w300'+poster+'"><p>'+name+'</p>';
        	html += '</div>'
  		return html;
  	}
@@ -133,21 +134,23 @@ $(document).ready(function(){
             	x++;
             	var thisDiv = 'not set';
             	var input;
+            	searchOption = resultsArray[i].media_type ? resultsArray[i].media_type : searchOption;
 
             	switch(searchOption) {
             		case 'movie':
-            			input = new Movie(resultsArray[i].title, basePath, resultsArray[i].poster_path, resultsArray[i].overview);       			
+            		console.log(resultsArray[i]);
+            			input = new Movie(resultsArray[i].title, basePath, resultsArray[i].poster_path, resultsArray[i].overview, resultsArray[i].id);       			
             			thisDiv = input.getDiv();
             		break;
             		case 'person':
-            			input = new Person();
+            		console.log(resultsArray[i]);
+            			input = new Person(basePath, resultsArray[i].name, resultsArray[i].profile_path, resultsArray[i].info, resultsArray[i].known_for, resultsArray[i].id);
             			thisDiv = input.getDiv();
             		break;
             		case 'tv':
-            			input = new TVShow();
+            		console.log(resultsArray[i]);
+            			input = new TVShow(basePath, resultsArray[i].poster_path, resultsArray[i].name, resultsArray[i].overview, resultsArray[i].id);
             			thisDiv = input.getDiv();
-            		break;
-            		case 'multi':
             		break;
             	}
 
